@@ -8,4 +8,7 @@ Gem::Specification.new do |s|
   s.email       = 'hannes@sthlmconnection.se'
   s.files       = ["lib/samtrafiken_api.rb"]
   # s.homepage    = 'http://rubygems.org/gems/samtrafiken_api'
+
+  s.add_runtime_dependency 'httparty', '~> 0.11'
+
 end
