@@ -15,6 +15,11 @@ module SamtrafikenAPI
 
     base_uri self.uris[:timetable]
 
+    # @!attribute response
+    #   @return [HTTParty::Response] the HTTParty response object for the last 
+    #     request, which can be used for inspecting errors etc.
+    attr_accessor :response
+
     # Initialize a new API object.
     #
     # @param api_key [String] The ResRobot Sök resa API key.
@@ -42,11 +47,10 @@ module SamtrafikenAPI
     # Documentation: http://www.trafiklab.se/api/resrobot/search
     #
     # @param query [Hash] query keys and values.
-    # @return [Hash] a hash containing a `:data` object and `:response` – a 
-    #   HTTParty::Response object.
+    # @return [Hash] a hash containing the returned data.
     def search query
-      response = self.class.get('/Search.json', :query => query)
-      return SamtrafikenAPI.parse_response response
+      @response = self.class.get('/Search.json', :query => query)
+      return SamtrafikenAPI.parse_response @response
     end
 
     # Endpoint: StationsInZone

@@ -15,7 +15,7 @@ describe SamtrafikenAPI::Resrobot do
     }.to raise_error
   end
 
-  it "can do a Search request" do
+  it "can make a Search request" do
     query = {
       from: 'Vitabergsparken',
       to: 'Luma park',
@@ -26,15 +26,16 @@ describe SamtrafikenAPI::Resrobot do
       coordSys: 'WGS84',
     }
     expect {
-      @response = @rr.search(query)
+      @result = @rr.search(query)
     }.to_not raise_error
-    @response.should have_key(:data)
+    @result.should be_an(Object)
+    @rr.response.class.should == HTTParty::Response
   end
 
-
-  it "raises error on invalid requests" do
+  it "raises error on invalid Search requests" do
     expect {
       @rr.search({})
     }.to raise_error
+    @rr.response.class.should == HTTParty::Response
   end
 end
