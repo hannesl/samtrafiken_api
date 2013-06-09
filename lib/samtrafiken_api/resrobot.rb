@@ -55,6 +55,13 @@ module SamtrafikenAPI
 
     # Endpoint: StationsInZone
     # Documentation: http://www.trafiklab.se/api/resrobot/stationsinzone
+    #
+    # @param query [Hash] query keys and values.
+    # @return [Hash] a hash containing the returned data.
+    def stations_in_zone query
+      @response = self.class.get('/StationsInZone.json', :query => query)
+      return SamtrafikenAPI.parse_response @response
+    end
 
     # Endpoint: TimeTablePeriod
     # Documentation: http://www.trafiklab.se/api/resrobot/timetableperiod

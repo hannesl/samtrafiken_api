@@ -19,10 +19,10 @@ describe SamtrafikenAPI::Resrobot do
     query = {
       from: 'Vitabergsparken',
       to: 'Luma park',
-      fromX: '18.086917',
-      fromY: '59.311896',
-      toX: '18.09596',
-      toY: '59.304503',
+      fromX: 18.086917,
+      fromY: 59.311896,
+      toX: 18.09596,
+      toY: 59.304503,
       coordSys: 'WGS84',
     }
     expect {
@@ -38,4 +38,27 @@ describe SamtrafikenAPI::Resrobot do
     }.to raise_error
     @rr.response.class.should == HTTParty::Response
   end
+
+
+  it "can make a StationsInZone request" do
+    query = {
+      centerX: 18.09596,
+      centerY: 59.304503,
+      radius: 100,
+      coordSys: 'WGS84',
+    }
+    expect {
+      @result = @rr.stations_in_zone(query)
+    }.to_not raise_error
+    @result.should be_an(Object)
+    @rr.response.class.should == HTTParty::Response
+  end
+
+  it "raises error on invalid StationsInZone requests" do
+    expect {
+      @rr.stations_in_zone({})
+    }.to raise_error
+    @rr.response.class.should == HTTParty::Response
+  end
+
 end
