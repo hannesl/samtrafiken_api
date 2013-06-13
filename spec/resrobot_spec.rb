@@ -26,7 +26,7 @@ describe SamtrafikenAPI::Resrobot do
       coordSys: 'WGS84',
     }
     expect {
-      @result = @rr.search(query)
+      @result = @rr.search query 
     }.to_not raise_error
     @result.should be_an(Object)
     @rr.response.class.should == HTTParty::Response
@@ -48,16 +48,46 @@ describe SamtrafikenAPI::Resrobot do
       coordSys: 'WGS84',
     }
     expect {
-      @result = @rr.stations_in_zone(query)
+      @result = @rr.stations_in_zone query
     }.to_not raise_error
     @result.should be_an(Object)
     @rr.response.class.should == HTTParty::Response
   end
 
-  it "raises error on invalid StationsInZone requests" do
+  it "can make a TimeTablePeriod request" do
     expect {
-      @rr.stations_in_zone({})
-    }.to raise_error
+      @result = @rr.time_table_period
+    }.to_not raise_error
+    @result.should be_an(Object)
+    @rr.response.class.should == HTTParty::Response
+  end
+
+  it "can make a ProducerList request" do
+    expect {
+      @result = @rr.producer_list
+    }.to_not raise_error
+    @result.should be_an(Object)
+    @rr.response.class.should == HTTParty::Response
+  end
+
+  it "can make a TransportModeList request" do
+    expect {
+      @result = @rr.transport_mode_list
+    }.to_not raise_error
+    @result.should be_an(Object)
+    @rr.response.class.should == HTTParty::Response
+  end
+
+  it "can make a FindLocation request" do
+    query = {
+      from: 'Sickla kanalgata 67, Stockholm',
+      to: 'Stockholm Centralstation',
+      coordSys: 'WGS84',
+    }
+    expect {
+      @result = @rr.find_location query
+    }.to_not raise_error
+    @result.should be_an(Object)
     @rr.response.class.should == HTTParty::Response
   end
 

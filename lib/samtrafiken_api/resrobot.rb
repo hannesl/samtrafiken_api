@@ -65,15 +65,40 @@ module SamtrafikenAPI
 
     # Endpoint: TimeTablePeriod
     # Documentation: http://www.trafiklab.se/api/resrobot/timetableperiod
+    #
+    # @return [Hash] a hash containing the returned data.
+    def time_table_period
+      @response = self.class.get('/TimeTablePeriod.json')
+      return SamtrafikenAPI.parse_response @response
+    end
 
     # Endpoint: ProducerList
     # Documentation: http://www.trafiklab.se/api/resrobot/producerlist
+    #
+    # @return [Hash] a hash containing the returned data.
+    def producer_list
+      @response = self.class.get('/ProducerList.json')
+      return SamtrafikenAPI.parse_response @response
+    end
 
     # Endpoint: TransportModeList
     # Documentation: http://www.trafiklab.se/api/resrobot/transportmodelist
+    #
+    # @return [Hash] a hash containing the returned data.
+    def transport_mode_list
+      @response = self.class.get('/TransportModeList.json')
+      return SamtrafikenAPI.parse_response @response
+    end
 
     # Endpoint: FindLocation
     # Documentation: http://www.trafiklab.se/api/resrobot/findlocation
+    #
+    # @param query [Hash] query keys and values.
+    # @return [Hash] a hash containing the returned data.
+    def find_location query
+      @response = self.class.get('/FindLocation.json', :query => query)
+      return SamtrafikenAPI.parse_response @response
+    end
 
   end
 end
