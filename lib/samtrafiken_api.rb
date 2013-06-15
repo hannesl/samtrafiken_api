@@ -1,5 +1,6 @@
 require 'httparty'
 require 'samtrafiken_api/resrobot'
+require 'samtrafiken_api/resrobot_stops'
 
 # A wrapper for the Samtrafiken web API.
 module SamtrafikenAPI
