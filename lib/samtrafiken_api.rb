@@ -1,6 +1,7 @@
 require 'httparty'
 require 'samtrafiken_api/resrobot'
 require 'samtrafiken_api/resrobot_stops'
+require 'json'
 
 # A wrapper for the Samtrafiken web API.
 module SamtrafikenAPI
@@ -17,13 +18,22 @@ module SamtrafikenAPI
     # @param response [HTTParty:Response] the HTTParty response.
     # @return [Hash] a hash containing the returned data.
     def parse_response response
-      data = response.parsed_response
-      data = data[data.keys[0]]
+      data = response.parsed_response.values[0]
       if response.code == 200
-        return data
+        data
       else
         raise data['errors']['error']['errordescription']
       end
+    end
+  end
+end
+
+# Monkey patching HTTParty::Parser::json to convert API data to UTF-8.
+# See http://www.trafiklab.se/blogg/2013/aug/13e-september-uppgraderas-api-proxyn-alla-bor-testa-sina-applikationer
+module HTTParty
+  class Parser
+    def json
+      JSON.load(body.force_encoding("ISO-8859-1").encode("UTF-8"), nil)
     end
   end
 end
