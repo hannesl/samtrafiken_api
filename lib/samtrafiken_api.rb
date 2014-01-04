@@ -1,4 +1,5 @@
 require 'httparty'
+require 'samtrafiken_api/api_base'
 require 'samtrafiken_api/resrobot'
 require 'samtrafiken_api/resrobot_stops'
 require 'json'
@@ -11,19 +12,6 @@ module SamtrafikenAPI
     # @return [String] the string "Hello World!".
     def hi
       return "Hello world!"
-    end
-
-    # Parse a HTTParty response and return parsed data.
-    #
-    # @param response [HTTParty:Response] the HTTParty response.
-    # @return [Hash] a hash containing the returned data.
-    def parse_response response
-      data = response.parsed_response.values[0]
-      if response.code == 200
-        data
-      else
-        raise data['errors']['error']['errordescription']
-      end
     end
   end
 end

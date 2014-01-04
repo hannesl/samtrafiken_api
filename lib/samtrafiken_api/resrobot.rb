@@ -2,8 +2,7 @@ module SamtrafikenAPI
 
   # Samtrafiken ResRobot API.
   # Documentation: http://www.trafiklab.se/api/resrobot-sok-resa
-  class Resrobot
-    include HTTParty
+  class Resrobot < APIBase
     #debug_output $stdout
 
     def self.uris
@@ -14,23 +13,6 @@ module SamtrafikenAPI
     end
 
     base_uri self.uris[:timetable]
-
-    # @!attribute response
-    #   @return [HTTParty::Response] the HTTParty response object for the last 
-    #     request, which can be used for inspecting errors etc.
-    attr_accessor :response
-
-    # Initialize a new API object.
-    #
-    # @param api_key [String] The ResRobot Sök resa API key.
-    def initialize(api_key)
-      self.class.default_params({
-        apiVersion: '2.1',
-        key: api_key
-      })
-    end
-
-    format :json
 
     # Set the API mode to use either real time or time table data.
     #
@@ -50,7 +32,7 @@ module SamtrafikenAPI
     # @return [Hash] a hash containing the returned data.
     def search query
       @response = self.class.get('/Search.json', :query => query)
-      return SamtrafikenAPI.parse_response @response
+      return read_response @response
     end
 
     # Endpoint: StationsInZone
@@ -60,7 +42,7 @@ module SamtrafikenAPI
     # @return [Hash] a hash containing the returned data.
     def stations_in_zone query
       @response = self.class.get('/StationsInZone.json', :query => query)
-      return SamtrafikenAPI.parse_response @response
+      return read_response @response
     end
 
     # Endpoint: TimeTablePeriod
@@ -69,7 +51,7 @@ module SamtrafikenAPI
     # @return [Hash] a hash containing the returned data.
     def time_table_period
       @response = self.class.get('/TimeTablePeriod.json')
-      return SamtrafikenAPI.parse_response @response
+      return read_response @response
     end
 
     # Endpoint: ProducerList
@@ -78,7 +60,7 @@ module SamtrafikenAPI
     # @return [Hash] a hash containing the returned data.
     def producer_list
       @response = self.class.get('/ProducerList.json')
-      return SamtrafikenAPI.parse_response @response
+      return read_response @response
     end
 
     # Endpoint: TransportModeList
@@ -87,7 +69,7 @@ module SamtrafikenAPI
     # @return [Hash] a hash containing the returned data.
     def transport_mode_list
       @response = self.class.get('/TransportModeList.json')
-      return SamtrafikenAPI.parse_response @response
+      return read_response @response
     end
 
     # Endpoint: FindLocation
@@ -97,7 +79,7 @@ module SamtrafikenAPI
     # @return [Hash] a hash containing the returned data.
     def find_location query
       @response = self.class.get('/FindLocation.json', :query => query)
-      return SamtrafikenAPI.parse_response @response
+      return read_response @response
     end
 
   end
