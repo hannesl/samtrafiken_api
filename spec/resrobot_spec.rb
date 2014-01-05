@@ -26,9 +26,9 @@ describe SamtrafikenAPI::Resrobot do
       coordSys: 'WGS84',
     }
     expect {
-      @result = @rr.search query 
+      result = @rr.search query 
+      result.should be_an(Object)
     }.to_not raise_error
-    @result.should be_an(Object)
     @rr.response.class.should == HTTParty::Response
   end
 
@@ -48,33 +48,33 @@ describe SamtrafikenAPI::Resrobot do
       coordSys: 'WGS84',
     }
     expect {
-      @result = @rr.stations_in_zone query
+      result = @rr.stations_in_zone query
+      result.should be_an(Object)
     }.to_not raise_error
-    @result.should be_an(Object)
     @rr.response.class.should == HTTParty::Response
   end
 
   it "can make a TimeTablePeriod request" do
     expect {
-      @result = @rr.time_table_period
+      result = @rr.time_table_period
+      result.should be_an(Object)
     }.to_not raise_error
-    @result.should be_an(Object)
     @rr.response.class.should == HTTParty::Response
   end
 
   it "can make a ProducerList request" do
     expect {
-      @result = @rr.producer_list
+      result = @rr.producer_list
+      result.should be_an(Object)
     }.to_not raise_error
-    @result.should be_an(Object)
     @rr.response.class.should == HTTParty::Response
   end
 
   it "can make a TransportModeList request" do
     expect {
-      @result = @rr.transport_mode_list
+      result = @rr.transport_mode_list
+      result.should be_an(Object)
     }.to_not raise_error
-    @result.should be_an(Object)
     @rr.response.class.should == HTTParty::Response
   end
 
@@ -85,9 +85,9 @@ describe SamtrafikenAPI::Resrobot do
       coordSys: 'WGS84',
     }
     expect {
-      @result = @rr.find_location query
+      result = @rr.find_location query
+      result.should be_an(Object)
     }.to_not raise_error
-    @result.should be_an(Object)
     @rr.response.class.should == HTTParty::Response
   end
 

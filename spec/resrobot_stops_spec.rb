@@ -22,9 +22,9 @@ describe SamtrafikenAPI::ResrobotStops do
       coordSys: 'WGS84',
     }
     expect {
-      @result = @rr.get_departures query 
+      result = @rr.get_departures query 
+      result.should be_an(Object)
     }.to_not raise_error
-    @result.should be_an(Object)
     @rr.response.class.should == HTTParty::Response
   end
 
