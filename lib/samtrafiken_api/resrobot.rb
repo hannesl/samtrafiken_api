@@ -1,7 +1,18 @@
 module SamtrafikenAPI
 
   # Samtrafiken ResRobot API.
+  #
   # Documentation: http://www.trafiklab.se/api/resrobot-sok-resa
+  #
+  # @see 
+  #   See resrobot_spec.rb for details of how to use this class.
+  #
+  # @example
+  #   @rr = SamtrafikenAPI::Resrobot.new('MY-API-KEY')
+  #   @rr.set_mode(:realtime)
+  #   query = {key: "value"}
+  #   result = @rr.search query
+  #   #=> {...}
   class Resrobot < APIBase
     #debug_output $stdout
 
@@ -26,6 +37,7 @@ module SamtrafikenAPI
     end
 
     # Endpoint: Search
+    #
     # Documentation: http://www.trafiklab.se/api/resrobot/search
     #
     # @param query [Hash] query keys and values.
@@ -36,6 +48,7 @@ module SamtrafikenAPI
     end
 
     # Endpoint: StationsInZone
+    #
     # Documentation: http://www.trafiklab.se/api/resrobot/stationsinzone
     #
     # @param query [Hash] query keys and values.
@@ -46,6 +59,7 @@ module SamtrafikenAPI
     end
 
     # Endpoint: TimeTablePeriod
+    #
     # Documentation: http://www.trafiklab.se/api/resrobot/timetableperiod
     #
     # @return [Hash] a hash containing the returned data.
@@ -55,6 +69,7 @@ module SamtrafikenAPI
     end
 
     # Endpoint: ProducerList
+    #
     # Documentation: http://www.trafiklab.se/api/resrobot/producerlist
     #
     # @return [Hash] a hash containing the returned data.
@@ -64,6 +79,7 @@ module SamtrafikenAPI
     end
 
     # Endpoint: TransportModeList
+    #
     # Documentation: http://www.trafiklab.se/api/resrobot/transportmodelist
     #
     # @return [Hash] a hash containing the returned data.
@@ -73,6 +89,7 @@ module SamtrafikenAPI
     end
 
     # Endpoint: FindLocation
+    #
     # Documentation: http://www.trafiklab.se/api/resrobot/findlocation
     #
     # @param query [Hash] query keys and values.

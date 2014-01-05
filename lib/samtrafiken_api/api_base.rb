@@ -21,7 +21,7 @@ module SamtrafikenAPI
 
     format :json
 
-    # Parse a HTTParty response and return parsed data.
+    # Read a HTTParty response and return parsed data.
     #
     # @param response [HTTParty:Response] the HTTParty response.
     # @return [Hash] a hash containing the returned data.

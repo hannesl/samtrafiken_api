@@ -16,9 +16,11 @@ module SamtrafikenAPI
   end
 end
 
-# Monkey patching HTTParty::Parser::json to convert API data to UTF-8.
-# See http://www.trafiklab.se/blogg/2013/aug/13e-september-uppgraderas-api-proxyn-alla-bor-testa-sina-applikationer
+# Monkey patching HTTParty.
 module HTTParty
+  # A custom Parser::json implementation that converts API data to UTF-8.
+  #
+  # See http://www.trafiklab.se/blogg/2013/aug/13e-september-uppgraderas-api-proxyn-alla-bor-testa-sina-applikationer
   class Parser
     def json
       JSON.load(body.force_encoding("ISO-8859-1").encode("UTF-8"), nil)

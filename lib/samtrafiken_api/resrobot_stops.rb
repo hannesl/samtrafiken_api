@@ -1,7 +1,18 @@
 module SamtrafikenAPI
 
   # Samtrafiken ResRobot Stolptidtabeller API.
+  #
   # Documentation: http://www.trafiklab.se/api/resrobot-stolptidtabeller
+  #
+  # @see 
+  #   See resrobot_stops_spec.rb for details of how to use this class.
+  #
+  # @example
+  #   @rr = SamtrafikenAPI::ResrobotStops.new('MY-API-KEY')
+  #   @rr.set_mode(:realtime)
+  #   query = {key: "value"}
+  #   result = @rr.get_departures query 
+  #   #=> {...}
   class ResrobotStops < APIBase
     #debug_output $stdout
 
