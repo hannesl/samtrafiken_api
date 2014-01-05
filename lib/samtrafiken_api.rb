@@ -2,6 +2,7 @@ require 'httparty'
 require 'samtrafiken_api/api_base'
 require 'samtrafiken_api/resrobot'
 require 'samtrafiken_api/resrobot_stops'
+require 'samtrafiken_api/stationsinfo'
 require 'json'
 
 # A wrapper for the Samtrafiken web API.
