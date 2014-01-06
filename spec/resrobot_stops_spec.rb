@@ -23,7 +23,7 @@ describe SamtrafikenAPI::ResrobotStops do
     }
     expect {
       result = @rr.get_departures query 
-      result.should be_an(Object)
+      result.should be_a(Hash)
     }.to_not raise_error
     @rr.response.class.should == HTTParty::Response
   end

@@ -27,7 +27,7 @@ describe SamtrafikenAPI::Resrobot do
     }
     expect {
       result = @rr.search query 
-      result.should be_an(Object)
+      result.should be_a(Hash)
     }.to_not raise_error
     @rr.response.class.should == HTTParty::Response
   end
@@ -49,7 +49,7 @@ describe SamtrafikenAPI::Resrobot do
     }
     expect {
       result = @rr.stations_in_zone query
-      result.should be_an(Object)
+      result.should be_a(Hash)
     }.to_not raise_error
     @rr.response.class.should == HTTParty::Response
   end
@@ -57,7 +57,7 @@ describe SamtrafikenAPI::Resrobot do
   it "can make a TimeTablePeriod request" do
     expect {
       result = @rr.time_table_period
-      result.should be_an(Object)
+      result.should be_a(Hash)
     }.to_not raise_error
     @rr.response.class.should == HTTParty::Response
   end
@@ -65,7 +65,7 @@ describe SamtrafikenAPI::Resrobot do
   it "can make a ProducerList request" do
     expect {
       result = @rr.producer_list
-      result.should be_an(Object)
+      result.should be_a(Hash)
     }.to_not raise_error
     @rr.response.class.should == HTTParty::Response
   end
@@ -73,7 +73,7 @@ describe SamtrafikenAPI::Resrobot do
   it "can make a TransportModeList request" do
     expect {
       result = @rr.transport_mode_list
-      result.should be_an(Object)
+      result.should be_a(Hash)
     }.to_not raise_error
     @rr.response.class.should == HTTParty::Response
   end
@@ -86,7 +86,7 @@ describe SamtrafikenAPI::Resrobot do
     }
     expect {
       result = @rr.find_location query
-      result.should be_an(Object)
+      result.should be_a(Hash)
     }.to_not raise_error
     @rr.response.class.should == HTTParty::Response
   end
