@@ -13,6 +13,7 @@ GEM
       multi_xml (>= 0.5.2)
     multi_json (1.7.6)
     multi_xml (0.5.4)
+    rake (10.1.1)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -27,5 +28,6 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (>= 1.0.0)
+  rake (~> 10.1)
   rspec (~> 2.6)
   samtrafiken_api!
