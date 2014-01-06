@@ -13,7 +13,7 @@ module SamtrafikenAPI
   #   @si = SamtrafikenAPI::StationsInfo.new('MY-API-KEY')
   #   result = @si.stations
   #   #=> [...]
-  class Stationsinfo < APIBase
+  class Stationinfo < APIBase
     #debug_output $stdout
 
     base_uri 'https://api.trafiklab.se/samtrafiken/stationinfo'

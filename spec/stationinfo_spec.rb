@@ -6,9 +6,9 @@ STATION_ID_STOCKHOLM_CENTRAL = 7400001
 STATION_ID_MISSING = 99999999999999
 STATION_IMAGE_ID_STOCKHOLM_CENTRAL = 2605
 
-describe SamtrafikenAPI::Stationsinfo do
+describe SamtrafikenAPI::Stationinfo do
   before do
-    @si = SamtrafikenAPI::Stationsinfo.new(ENV['STATIONSINFO_API_KEY'])
+    @si = SamtrafikenAPI::Stationinfo.new(ENV['STATIONSINFO_API_KEY'])
   end
 
   it "can make a List request" do
