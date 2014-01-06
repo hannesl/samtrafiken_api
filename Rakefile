@@ -1,11 +1,18 @@
 require 'bundler'
-require 'rake/testtask'
+require 'rake'
+require 'rspec/core/rake_task'
 
 Bundler::GemHelper.install_tasks
 
-Rake::TestTask.new do |t|
-  t.libs << 'test'
+
+unless ENV['RESROBOT_API_KEY'].nil? || ENV['RESROBOT_STOPS_API_KEY'].nil? || ENV['STATIONSINFO_API_KEY'].nil?
+  RSpec::Core::RakeTask.new(:spec)
+  desc "Run specs"
+  task :test => :spec
+else
+  task :test do
+    puts "The API keys needed to run the tests are not defined."
+  end
 end
 
-desc "Run tests"
 task :default => :test
