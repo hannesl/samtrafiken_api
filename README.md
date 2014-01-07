@@ -1,5 +1,7 @@
 # Samtrafiken API
 
+[![Build Status](https://travis-ci.org/hannesl/samtrafiken_api.png)](https://travis-ci.org/hannesl/samtrafiken_api)
+
 This gem is a thin wrapper around the 
 [public transportation web APIs](http://www.trafiklab.se/) provided by 
 Samtrafiken. Its classes and methods correspond to the different APIs and their
