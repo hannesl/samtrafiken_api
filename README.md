@@ -1,5 +1,6 @@
 # Samtrafiken API
 
+[![Gem Version](https://badge.fury.io/rb/samtrafiken_api.png)](http://badge.fury.io/rb/samtrafiken_api)
 [![Build Status](https://travis-ci.org/hannesl/samtrafiken_api.png)](https://travis-ci.org/hannesl/samtrafiken_api)
 
 This gem is a thin wrapper around the 
