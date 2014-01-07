@@ -10,11 +10,11 @@ HTTP endpoints.
 Please see the following pages to get an idea of what each API provides.
 
   * [ResRobot Sök Resa](http://www.trafiklab.se/api/resrobot-sok-resa) 
-    (`SamtrafikenAPI::Resrobot`)
+    (implemented by `SamtrafikenAPI::Resrobot`)
   * [ResRobot Stolptidtabeller](http://www.trafiklab.se/api/resrobot-stolptidtabeller)
-    (`SamtrafikenAPI::ResrobotStops`)
+    (implemented by `SamtrafikenAPI::ResrobotStops`)
   * [Samtrafiken Stationsinfo](http://www.trafiklab.se/api/samtrafiken-stationsinfo)
-    (`SamtrafikenAPI::Stationinfo`)
+    (implemented by `SamtrafikenAPI::Stationinfo`)
 
 The methods return the raw json data provided by the APIs, parsed into Ruby 
 objects.
@@ -24,8 +24,8 @@ objects.
 You need to sign up with [Trafiklab](http://www.trafiklab.se/) and get API keys
 for each of the APIs that you are going to use.
 
-Please see the class documentation and the test suite for examples of how the 
-gem is used.
+Please see the [class documentation](http://rubydoc.info/gems/samtrafiken_api/)
+and the test suite for examples of how the gem is used.
 
 ## Testing
 
