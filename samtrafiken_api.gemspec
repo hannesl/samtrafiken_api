@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.description = "A ruby implementation of the Samtrafiken web APIs."
   s.authors     = ["Hannes Lilljequist"]
   s.email       = 'hannes@sthlmconnection.se'
-  s.homepage    = 'http://rubygems.org/gems/samtrafiken_api'
+  s.homepage    = 'https://github.com/hannesl/samtrafiken_api'
   s.required_rubygems_version = ">= 1.3.6"
 
   s.add_development_dependency "bundler", ">= 1.0.0"
