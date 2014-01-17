@@ -23,7 +23,7 @@ module SamtrafikenAPI
     # Documentation: http://www.trafiklab.se/api/samtrafiken-stationsinfo/alla-stationer
     #
     # @param query [Hash] query keys and values.
-    # @return [Array] an array of all station objects.
+    # @return [Array] an array of all station hashes.
     def stations query = {}
       @response = self.class.get('/stations.json', :query => query)
       read_response(@response)
@@ -35,7 +35,7 @@ module SamtrafikenAPI
     #
     # @param id [Integer] the category ID.
     # @param query [Hash] query keys and values.
-    # @return [Array] an array of all station objects.
+    # @return [Array] an array of station objects.
     def category id, query = {}
       @response = self.class.get("/category/#{id}.json", :query => query)
       read_response(@response)
@@ -46,7 +46,7 @@ module SamtrafikenAPI
     # Documentation: http://www.trafiklab.se/api/samtrafiken-stationsinfo/information-om-en-station
     #
     # @param id [Integer] the station ID.
-    # @return [Object] a station object.
+    # @return [Hash] a hash containing the station data.
     def station id
       @response = self.class.get("/stations/#{id}.json")
       read_response(@response)

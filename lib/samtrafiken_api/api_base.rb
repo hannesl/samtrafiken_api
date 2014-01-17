@@ -11,7 +11,7 @@ module SamtrafikenAPI
 
     # Initialize a new API object.
     #
-    # @param api_key [String] The ResRobot Sök resa API key.
+    # @param api_key [String] An API key.
     def initialize(api_key)
       self.class.default_params({
         apiVersion: '2.1',

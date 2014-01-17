@@ -16,6 +16,9 @@ module SamtrafikenAPI
   class ResrobotStops < APIBase
     #debug_output $stdout
 
+    # Get the URIs of this API's two API modes.
+    #
+    # @return [Hash] with the keys `:timetable` and `:realtime`.
     def self.uris
       {
         timetable: 'https://api.trafiklab.se/samtrafiken/resrobotstops',
